@@ -1,0 +1,6 @@
+trash
+*.swp
+.DS_STORE
+.vscode
+cc_stars
+ada_stars
