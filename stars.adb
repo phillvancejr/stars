@@ -6,11 +6,8 @@ with interfaces; use interfaces;
 with interfaces.c; use interfaces.c;
 with interfaces.c.strings;  
 with ada.numerics.float_random; 
-with ada.text_io;
-with ada.float_text_io;
+
 procedure stars is
-    package io renames ada.text_io;
-    package fio renames ada.float_text_io;
     package cstr renames interfaces.c.strings;
     package rand renames ada.numerics.float_random;
 
