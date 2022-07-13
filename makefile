@@ -15,6 +15,6 @@ ada: stars.adb
 
 cc: select stars.cc 
 	clang++ -std=c++20 $(flags) $(libs) -o cc_stars stars.cc && \
-    $(MAKE) reset
+	$(MAKE) reset
 
 
