@@ -80,12 +80,10 @@ begin
                 y := Bounds_Y((star_y(i)/z) * half_height + half_height);
 
                 pixels(y, x) := natural(white);
-
             exception
                 when constraint_error =>
                     init_star(i);
             end;
-
         end loop;
     end loop;
 end;
