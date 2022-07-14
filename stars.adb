@@ -28,7 +28,6 @@ procedure stars is
     spread    : float    := 20.0; 
     speed     : float    := 0.1;
     
-
     type Star_Range is array(0 .. num_stars-1) of float;
     star_x : Star_Range;
     star_y : Star_Range;
