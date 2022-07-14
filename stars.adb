@@ -13,7 +13,7 @@ procedure stars is
 
     gen    : rand.generator;    
  
-    title  : cstr.chars_ptr := cstr.new_string("Software Rendering Ada");
+    title  : cstr.chars_ptr := cstr.new_string("Star Field Ada");
     width  : constant := 800;
     height : constant := 600;
 
@@ -45,7 +45,7 @@ procedure stars is
         star_z(i) := (rand.random(gen) + 0.00001) * spread;
     end;
 
-    window : access mfb_window := mfb_open_ex(title, width, height, WF_RESIZABLE);
+    window : access mfb_window := mfb_open(title, width, height);
     
     procedure clear is begin pixels := (others=>(others=>0)); end;
 begin
@@ -62,12 +62,13 @@ begin
         -- clear to black
         clear;
         -- draw stars
-        for i in Star_Range'range loop
+        star_loop: for i in Star_Range'range loop
             declare
                 z renames star_z(i);
-                x : integer;
-                y : integer;
-
+                --x : integer;
+                --y : integer;
+                x : Bounds_X;
+                y : Bounds_Y;
             begin
                 -- move on z
                 z := @ - speed;
@@ -75,18 +76,19 @@ begin
                 if z <= 0.0 then 
                     init_star(i); 
                 end if;
-            
+                
                 -- convert to screen space
-                x := integer((star_x(i)/z) * half_width + half_width);
-                y := integer((star_y(i)/z) * half_height + half_height);
+                x := Bounds_X((star_x(i)/z) * half_width + half_width);
+                y := Bounds_Y((star_y(i)/z) * half_height + half_height);
 
-                if x not in Bounds_X or y not in Bounds_Y then
+                pixels(y, x) := natural(white);
+
+            exception
+                when constraint_error =>
                     init_star(i);
-                else
-                    pixels(y, x) := natural(white);
-                end if;
             end;
-        end loop;
+
+        end loop star_loop;
 
     end loop;
 end;

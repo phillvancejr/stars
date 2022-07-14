@@ -6,7 +6,7 @@
 #include <time.h>
 #include <limits>
 
-auto title = "Software Rendering CC";
+auto title = "Star Field CC";
 constexpr auto width = 800;
 constexpr auto height = 600;
 constexpr auto half_width = width / 2;
@@ -36,7 +36,7 @@ int main() {
 
     for (auto i = 0; i < num_stars; i++) init_star(i);
 
-    auto window = mfb_open_ex(title, width, height, WF_RESIZABLE);
+    auto window = mfb_open(title, width, height);
 
     while (mfb_wait_sync(window)) {
         if (mfb_update_ex(window, pixels.data(), width, height) < 0 ) break;
