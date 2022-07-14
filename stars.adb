@@ -79,8 +79,7 @@ begin
 
                 pixels(y, x) := natural(white);
             exception
-                when constraint_error =>
-                    init_star(i);
+                when constraint_error => init_star(i);
             end;
         end loop;
     end loop;
