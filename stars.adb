@@ -62,11 +62,9 @@ begin
         -- clear to black
         clear;
         -- draw stars
-        star_loop: for i in Star_Range'range loop
+        for i in Star_Range'range loop
             declare
                 z renames star_z(i);
-                --x : integer;
-                --y : integer;
                 x : Bounds_X;
                 y : Bounds_Y;
             begin
@@ -88,7 +86,6 @@ begin
                     init_star(i);
             end;
 
-        end loop star_loop;
-
+        end loop;
     end loop;
 end;
