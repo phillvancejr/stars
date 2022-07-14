@@ -21,5 +21,6 @@ nim: select stars.nim
 	nim c --verbosity:0 -d:danger -d:striip --opt:size -o:nim_stars stars.nim && \
 	$(MAKE) reset
 	
-
-
+nim2: select stars2.nim
+	nim c --verbosity:0 -d:danger -d:striip --opt:size -o:nim_stars2 stars2.nim && \
+	$(MAKE) reset
