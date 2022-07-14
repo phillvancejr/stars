@@ -56,7 +56,6 @@ begin
         init_star(i);
     end loop;
 
-
     while mfb_wait_sync(window) loop
         exit when mfb_update_ex(window, pixels'address, width, height) < 0;
         -- clear to black
